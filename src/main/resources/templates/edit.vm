@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Player</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h4>Edit player</h4>
+<form method="POST" command="player" action="/edit/update">
+
+    <p>
+
+
+#foreach ( $player in $players )
+
+    #springFormHiddenInput ("player.id")
+    </br>
+        First Name: #springFormInput("player.first_name")
+    #springBind("form.first_name")#springShowErrors("<br/>", "text-danger")
+        </br>
+    </br>
+        Surname: #springFormInput("player.surname")
+    #springBind("form.surname")#springShowErrors("<br/>", "text-danger")
+        </br>
+    </br>
+        Club: #springFormInput("player.club")
+    #springBind("form.club")#springShowErrors("<br/>", "text-danger")
+        </br>
+    </br>
+        Shirt Number: #springFormInput("player.shirtno" 'type="input" value="$!player.shirtno"')
+    #springBind("form.shirtno")#springShowErrors("<br/>", "text-danger")
+        </br>
+    </br>
+        <input type="submit" value="Update"/>
+</p>
+</form>
+    #end
+</body>
+</html>
